@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project EXAMEN FINAL with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="C:/Users/usuario/Desktop"/>
+    <property name="dir.jarfile" value="${dir.workspace}"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.workspace}/lexico.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="dlince.PythonLexico"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ java-cup-11a.jar jflex-1.6.1.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="${dir.buildfile}/bin"/>
+            <zipfileset dir="C:/Users/usuario/Downloads/jflex-1.6.1/lib" includes="java-cup-11a.jar"/>
+            <zipfileset dir="C:/Users/usuario/Downloads/jflex-1.6.1/lib" includes="jflex-1.6.1.jar"/>
+        </jar>
+    </target>
+</project>
